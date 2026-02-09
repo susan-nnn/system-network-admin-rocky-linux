@@ -1,0 +1,14 @@
+$TTL 86400
+@   IN  SOA myserver.NP069987.com. root.myserver.NP069987.com. (
+        2025060401  ; Serial
+        21600       ; Refresh
+        3600        ; Retry
+        604800      ; Expire
+        86400 )     ; Minimum TTL
+
+; Name Server
+@   IN  NS  myserver.NP069987.com.
+
+; PTR Records
+80  IN PTR myclient.NP069987.com.
+5   IN PTR myserver.NP069987.com.
