@@ -1,0 +1,28 @@
+myhostname = myserver.NP069987.com
+mydomain = myserver.NP069987.com
+myorigin = $mydomain
+
+home_mailbox = Maildir/
+
+smtpd_banner = $myhostname ESMTP
+biff = no
+append_dot_mydomain = no
+
+# TLS
+smtpd_tls_cert_file = /etc/pki/tls/certs/postfix.pem
+smtpd_tls_key_file = /etc/pki/tls/private/postfix.pem
+smtpd_use_tls = yes
+smtpd_tls_session_cache_database = btree:${data_directory}/smtpd_scache
+smtp_tls_security_level = may
+smtpd_tls_security_level = may
+smtpd_tls_auth_only = yes
+
+# SASL Authentication via Dovecot
+smtpd_sasl_type = dovecot
+smtpd_sasl_path = private/auth
+smtpd_sasl_auth_enable = yes
+
+smtpd_recipient_restrictions =
+    permit_sasl_authenticated,
+    permit_mynetworks,
+    reject_unauth_destination
